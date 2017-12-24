@@ -32,12 +32,11 @@ public class FileAes {
             while((c=reader.read())!=-1){
             	tmp += (char)c;
             }
+            
             data = aes.decrypt(tmp);
+        } catch(IOException ex){
+        	System.out.println(ex.getMessage());
         }
-        catch(IOException ex){
-            System.out.println(ex.getMessage());
-        }   
-		 
 	}
 	
 	public boolean write(String newData) throws InvalidAesKeyException, InvalidKeyException {
